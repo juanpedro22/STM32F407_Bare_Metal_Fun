@@ -72,6 +72,7 @@ In startup.s:
 
 *note: if you have another stm32 board, look at the reference manual and the user manual of your board to adapt the GPIO ports used*
 
+
 ![alt text](image.png) 
 
 
