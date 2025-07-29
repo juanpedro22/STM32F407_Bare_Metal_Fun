@@ -13,7 +13,7 @@ This project blinks the green LED (PD12) of the STM32F407VG Discovery board usin
 - Built with arm-none-eabi-gcc  
 - Flashed using ST-LINK_CLI  
 
-## 💡 What You'll Learn
+## 💡 what's cool about this project
 
 - How to initialize an ARM MCU without any library  
 - How to configure GPIOs at the register level  
@@ -70,14 +70,7 @@ In startup.s:
 - MCU: STM32F407VG (Cortex-M4 @ 168 MHz)  
 - LED used: PD12 (green LED on board)  
 
-![alt text](image.png)
-
-## 🧪 Next Steps
-
-- Add UART (bare-metal)  
-- Implement timer-based delay  
-- Interface with ADC and push-button  
-- Develop a minimal bootloader  
+![alt text](image.png) 
 
 ## 📖 References
 
