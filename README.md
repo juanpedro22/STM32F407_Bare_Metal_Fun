@@ -70,10 +70,10 @@ In startup.s:
 - MCU: STM32F407VG (Cortex-M4 @ 168 MHz)  
 - LED used: PD12 (green LED on board)  
 
+*note: if you have another stm32 board, look at the reference manual and the user manual of your board to adapt the GPIO ports used*
+
 ![alt text](image.png) 
 
-
-*note: if you have another stm32 board, look at the reference manual and the user manual of your board to adapt the GPIO ports used*
 
 ## 📖 References
 
