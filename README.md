@@ -13,7 +13,7 @@ This project blinks the green LED (PD12) of the STM32F407VG Discovery board usin
 - Built with arm-none-eabi-gcc  
 - Flashed using ST-LINK_CLI  
 
-## 💡 what's cool about this project
+## 💡 What's cool about this project
 
 - How to initialize an ARM MCU without any library  
 - How to configure GPIOs at the register level  
@@ -22,7 +22,7 @@ This project blinks the green LED (PD12) of the STM32F407VG Discovery board usin
 
 ## ⚙️ Requirements
 
-Make sure you have the following tools installed (on Windows 11):
+Make sure you have the following tools installed (was developed in Windows 11):
 
 - arm-none-eabi-gcc 12 or newer (from Arm GNU Toolchain)  
 - make (via MSYS2 or Chocolatey)  
@@ -71,6 +71,9 @@ In startup.s:
 - LED used: PD12 (green LED on board)  
 
 ![alt text](image.png) 
+
+
+*note: if you have another stm32 board, look at the reference manual and the user manual of your board to adapt the GPIO ports used*
 
 ## 📖 References
 
