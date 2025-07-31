@@ -1,19 +1,17 @@
-#include "stm32f4xx.h"
-
-void delay(volatile unsigned int t) {
-    while (t--);
-}
+#include "stm32f407xx.h"
+#include "system_stm32f4xx.h"
+#include "timebase.h"
 
 int main(void) {
-    // Habilita o clock do GPIO D (bit 3 em AHB1ENR)
-    RCC->AHB1ENR |= (1 << 3);
+    SystemInit();               // Inicializa clocks e FPU se necessário
+    timebase_init(1000);        // Configura SysTick para 1ms
 
-    // Configura PD12 como output (bits 24 e 25 do MODER)
-    GPIOD->MODER &= ~(0x3 << (12 * 2));
-    GPIOD->MODER |=  (0x1 << (12 * 2));
+    RCC->AHB1ENR |= (1 << 3);   // Habilita clock do GPIOD
+    GPIOD->MODER &= ~(0x3 << (12 * 2)); // Limpa bits do pino 12
+    GPIOD->MODER |=  (0x1 << (12 * 2)); // Define como saída
 
     while (1) {
         GPIOD->ODR ^= (1 << 12); // Toggle LED
-        delay(1000000);
+        delay_ms(500);
     }
 }
