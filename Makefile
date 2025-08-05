@@ -22,7 +22,7 @@ all: $(TARGET)
 
 # Linkagem
 $(TARGET): $(SRCS_C) $(SRCS_S)
-	$(CC) $(CFLAGS) $^ $(LDFLAGS) -o $@
+	$(CC) $(CFLAGS) $^ $(LDFLAGS) -Wl,-Map=main.map -o $@
 
 # Geração do HEX
 $(HEX): $(TARGET)
@@ -34,7 +34,7 @@ flash: $(HEX)
 
 # Limpeza
 clean:
-	del /Q *.elf *.hex *.o
+	del /Q *.elf *.hex *.o *.map *.txt
 
 symbols: main.elf
 	arm-none-eabi-nm -n main.elf > symbols.txt
