@@ -10,7 +10,10 @@ int main(void) {
     lcd_init();
 
     lcd_set_cursor(0, 0);
-    lcd_send_string("LCD OK");
+    lcd_send_string("sistema");
+    lcd_set_cursor(1, 0);
+    lcd_send_string("inicializado!");
+    delay_ms(2000);
 
     RCC->AHB1ENR |= (1 << 3);   // Habilita clock do GPIOD
     GPIOD->MODER &= ~(0x3 << (12 * 2)); // Limpa bits do pino 12
@@ -18,9 +21,9 @@ int main(void) {
 
 
     lcd_set_cursor(0, 0);
-    lcd_send_string("Hello, STM32!");
+    lcd_send_string("Bare metal STM32");
     lcd_set_cursor(1, 0);
-    lcd_send_string("LCD via I2C :)");
+    lcd_send_string("normal mode  ");
 
 
     while (1) {

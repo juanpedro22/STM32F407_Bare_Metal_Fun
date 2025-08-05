@@ -36,6 +36,9 @@ flash: $(HEX)
 clean:
 	del /Q *.elf *.hex *.o
 
+symbols: main.elf
+	arm-none-eabi-nm -n main.elf > symbols.txt
+
 
 
 
