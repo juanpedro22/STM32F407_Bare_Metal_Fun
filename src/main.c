@@ -2,17 +2,28 @@
 #include "system_stm32f4xx.h"
 #include "timebase.h"
 #include "lcd_i2c.h"
+#include "uart.h"
+#include <stdio.h>
+
+void log_message(char *message_lcd_line1, char *message_lcd_line2, char *uart)
+{ 
+    lcd_set_cursor(0, 0);
+    lcd_send_string(message_lcd_line1);
+    lcd_set_cursor(1, 0);
+    lcd_send_string(message_lcd_line2);
+
+    printf("%s\r\n", uart); // Envia mensagem para o console UART
+
+}
 
 int main(void) {
     SystemInit();               // Inicializa clocks e FPU se necessário
     timebase_init(1000);        // Configura SysTick para 1ms
     i2c1_init();
     lcd_init();
+    uart_tx_init();
 
-    lcd_set_cursor(0, 0);
-    lcd_send_string("sistema");
-    lcd_set_cursor(1, 0);
-    lcd_send_string("inicializado!");
+    log_message("System Init", "normal mode", "System Init");
     delay_ms(2000);
 
     RCC->AHB1ENR |= (1 << 3);   // Habilita clock do GPIOD
@@ -20,10 +31,8 @@ int main(void) {
     GPIOD->MODER |=  (0x1 << (12 * 2)); // Define como saída
 
 
-    lcd_set_cursor(0, 0);
-    lcd_send_string("Bare metal STM32");
-    lcd_set_cursor(1, 0);
-    lcd_send_string("normal mode  ");
+    log_message("Blinking LED", "Press any key", "Blinking LED waiting command");
+    delay_ms(2000);
 
 
     while (1) {

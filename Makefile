@@ -11,7 +11,7 @@ HEX = main.hex
 LDFLAGS = -T linker.ld
 
 # Fontes e destino
-SRCS_C = src/main.c src/timebase.c src/lcd_i2c.c device/system_stm32f4xx.c
+SRCS_C = src/main.c src/timebase.c src/lcd_i2c.c src/uart.c src/syscalls.c device/system_stm32f4xx.c
 SRCS_S = src/startup.s
 TARGET = main.elf
 

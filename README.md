@@ -2,9 +2,17 @@
 
 This roadmap outlines a set of practical and fun features to build on top of a fully bare-metal STM32F407VG project — no HAL, no C++ classes, no bloated frameworks. Just pure registers, bitwise operations, and blinking LEDs.
 
+## ⚙️ Build and Flash on STM32F407 (Bare-metal)
+
+make        # Build
+make bin    # Generate firmware.bin
+make hex    # Generate firmware.hex
+make flash  # Flash to the board (OpenOCD + ST-LINK)
+make clean  # Remove .o, .elf, .bin, .hex, .map, and other temporary files
+
 ---
 
-## ✅ Phase 1 – Core Setup
+## ✅  Core Setup
 - [x] ✅ Minimal project with Makefile, linker script, and startup code
 - [x] ✅ LED blinking using SysTick-based delay
 - [x] ✅ 16x2 LCD over I2C (PCF8574T) working with custom driver
@@ -12,15 +20,15 @@ This roadmap outlines a set of practical and fun features to build on top of a f
 
 ---
 
-## 🛰️ Phase 2 – Communication Playground
-- [ ] ☐ UART printf (USART2 to USB)
+## 🛰️  Communication Playground
+- [ ] ✅ UART printf (USART2 to USB)
 - [ ] ☐ UART receive with interrupts and circular buffer
 - [ ] ☐ UART + DMA combo (non-blocking transfers)
 - [ ] ☐ Serial menu for fun interaction (change LED speed, show time, etc.)
 
 ---
 
-## 🔍 Phase 3 – Reading the World
+## 🔍  Reading the World
 - [ ] ☐ ADC read from potentiometer
 - [ ] ☐ I2C temperature sensor (e.g., LM75 or BMP180)
 - [ ] ☐ External EEPROM over I2C (store boot counters, user config)
@@ -28,7 +36,7 @@ This roadmap outlines a set of practical and fun features to build on top of a f
 
 ---
 
-## ⏱️ Phase 4 – Timer Tricks
+## ⏱️ Timer Tricks
 - [ ] ☐ PWM LED brightness control
 - [ ] ☐ Servo motor via PWM (angle control)
 - [ ] ☐ Output Compare to schedule blinking events
@@ -36,7 +44,7 @@ This roadmap outlines a set of practical and fun features to build on top of a f
 
 ---
 
-## 🎛️ Phase 5 – UI & Interaction
+## 🎛️ UI & Interaction
 - [ ] ☐ LCD menu navigation using buttons
 - [ ] ☐ Buzzer tone generator using PWM
 - [ ] ☐ LED color selector via potentiometer + LCD
@@ -44,35 +52,21 @@ This roadmap outlines a set of practical and fun features to build on top of a f
 
 ---
 
-## 📈 Phase 6 – Debug & Profiling
-- [ ] ☐ Display runtime diagnostics on LCD
+## 📈  Debug & Profiling
+- [ ] ✅ Display runtime diagnostics on LCD
 - [ ] ☐ Toggle GPIO for scope-based performance measurement
 - [ ] ☐ Print stack usage via linker map or estimation
 - [ ] ☐ UART dump of memory regions or registers
 
 ---
 
-## 🧨 Phase 7 – Advanced Toys
+## 🧨 Advanced Toys
 - [ ] ☐ Watchdog timer experiment (IWDG)
 - [ ] ☐ Basic bootloader switchable via button
 - [ ] ☐ Low-power modes (stop/sleep) with wakeup pin
 - [ ] ☐ Light encryption (XOR or software AES)
 
----
 
-## 🧪 Mini-Project Ideas
-- [ ] ☐ Stopwatch on LCD with start/pause/reset buttons
-- [ ] ☐ Temperature logger with EEPROM and timestamp
-- [ ] ☐ Servo-based safe lock controlled via serial input
-- [ ] ☐ Morse code generator using LED + buzzer
-
----
-
-## 🛠️ Tools & Extras
-- [ ] ☐ Play with `arm-none-eabi-nm`, `objdump`, `size`, `.map`
-- [ ] ☐ Generate `.bin` and `.hex` from ELF using Make
-- [ ] ☐ Organize drivers per peripheral (modular structure)
-- [ ] ☐ Build custom delay macros using DWT or SysTick
 
 ---
 
